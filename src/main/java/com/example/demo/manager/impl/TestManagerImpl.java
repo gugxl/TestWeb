@@ -20,4 +20,11 @@ public class TestManagerImpl implements TestManager {
         Thread.sleep(1000L);
         return "testAsync";
     }
+
+    @SneakyThrows
+    @Override
+    public String sayHello() {
+        Thread.sleep(1000);
+        return "hello";
+    }
 }

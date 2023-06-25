@@ -5,4 +5,6 @@ public interface TestManager {
     String testAsync();
 
     String testSync();
+
+    String sayHello();
 }
