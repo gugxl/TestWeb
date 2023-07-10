@@ -2,17 +2,15 @@ package com.example.demo.service.impl;
 
 import com.example.demo.model.Commodity;
 import com.example.demo.service.CommodityService;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-@RunWith(SpringRunner.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 public class CommodityServiceImplTest {
 
@@ -21,7 +19,9 @@ public class CommodityServiceImplTest {
 
     @Test
     public void count() {
-        Assert.assertTrue(commodityService.count() > 0);
+        long count = commodityService.count();
+        System.out.println(count);
+        assert count > 0 ;
     }
 
     @Test
@@ -67,7 +67,7 @@ public class CommodityServiceImplTest {
     @Test
     public void getByName() {
         List<Commodity> list = commodityService.getByName("面包");
-        Assert.assertEquals(list.toString(), "[Commodity(skuId=1501009001, name=原味切片面包（10片装）, category=101, price=880, brand=良品铺子, stock=null), Commodity(skuId=1501009002, name=原味切片面包（6片装）, category=101, price=680, brand=良品铺子, stock=null)]");
+        assertEquals(list.toString(), "[Commodity(skuId=1501009001, name=原味切片面包（10片装）, category=101, price=880, brand=良品铺子, stock=null), Commodity(skuId=1501009002, name=原味切片面包（6片装）, category=101, price=680, brand=良品铺子, stock=null)]");
     }
 
     @Test
