@@ -16,8 +16,8 @@ public interface UserMapper {
     List<User> findByUsername(String name);
 
     @Select("select * from user where id = #{id}")
-    User getOne(String userId);
+    User getOne(Long id);
 
     @Delete("delete from user where id = #{id}")
-    int delete(String id);
+    int delete(Long id);
 }

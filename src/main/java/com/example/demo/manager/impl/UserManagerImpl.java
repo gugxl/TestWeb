@@ -14,8 +14,15 @@ public class UserManagerImpl implements UserManager {
     @Autowired
     private UserMapper userMapper;
 
-    public List<User> getAll(){
+    @Override
+    public List<User> getAll() {
+        userMapper.list();
         return userMapper.list();
+    }
+
+    @Override
+    public User getUserById(Long id) {
+        return userMapper.getOne(id);
     }
 
 }
