@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS `t_student` (
+   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+   `student_no` VARCHAR ( 20 ) DEFAULT NULL COMMENT '学号',
+    `student_name` VARCHAR ( 20 ) DEFAULT NULL COMMENT '姓名',
+    `phone` VARCHAR ( 20 ) DEFAULT NULL COMMENT '电话',
+    `email` VARCHAR ( 50 ) DEFAULT NULL COMMENT '邮箱',
+    `sex` TINYINT ( 4 ) DEFAULT NULL COMMENT '性别',
+    `status` TINYINT ( 4 ) DEFAULT NULL COMMENT '状态(-1:删除,0:正常,1:锁定)',
+    `gmt_created` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '存入时间',
+    `gmt_modified` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改的时间',
+    PRIMARY KEY ( `id` )
+    ) ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COMMENT = '学生表';

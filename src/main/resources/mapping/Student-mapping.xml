@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.StudentMapper">
+
+  <resultMap id="BaseResultMap" type="com.example.demo.model.StudentDO">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="student_no" jdbcType="INTEGER" property="studentNo" />
+    <result column="student_name" jdbcType="VARCHAR" property="studentName" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="sex" jdbcType="TINYINT" property="sex" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="gmt_created" jdbcType="TIMESTAMP" property="gmtCreated" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, student_no, student_name, phone, email, sex, status, gmt_created, gmt_modified
+  </sql>
+
+  <select id="selectByStudentSelective" resultMap="BaseResultMap" parameterType="com.example.demo.model.StudentDO">
+    select
+    <include refid="Base_Column_List" />
+    from t_student
+    <where>
+      <if test="studentName != null and studentName !=''">
+        <bind name="studentNameLike" value="'%'+studentName+'%'"/>
+        and student_name like #{nameLike}
+      </if>
+      <if test="sex != null">
+        and sex=#{sex}
+      </if>
+    </where>
+  </select>
+</mapper>
