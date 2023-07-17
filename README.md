@@ -5,3 +5,15 @@
 4. springBoot使用Spring Data Elasticsearch Repositories操作Elasticsearch
 5. ElasticsearchRestTemplate 方式操作es
 6. RestHighLevelClient 操作ES
+7. SpringBoot集成mybatis
+
+
+
+
+
+
+
+说明：按道理来说项目应该进行分model，一般不建议存储层，业务层，展示层在一个model里面，推荐sofaBoot分层，或者更进一步，先领域模块划分之后再进行分层（建议CQRS），保证每个model内聚性以及model
+之间对象不互传污染下一层
+
+![img.png](img.png)
