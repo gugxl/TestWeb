@@ -27,7 +27,9 @@ public class ScheduleTask implements SchedulingConfigurer {
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
         // 动态使用cron表达式设置循环间隔
-        taskRegistrar.addTriggerTask(() -> log.info("Current time： {}", LocalDateTime.now()),
+        taskRegistrar.addTriggerTask(() -> {
+                log.info("Current time： {}", LocalDateTime.now());
+            },
             triggerContext -> {
                 // 使用CronTrigger触发器，可动态修改cron表达式来操作循环规则
                 // CronTrigger cronTrigger = new CronTrigger(cron);

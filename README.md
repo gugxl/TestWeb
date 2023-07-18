@@ -6,6 +6,7 @@
 5. ElasticsearchRestTemplate 方式操作es
 6. RestHighLevelClient 操作ES
 7. SpringBoot集成mybatis
+8. 简单定时任务 ScheduleTask  问题1.重启还原[持久化数据库]2.任务会等上一次完成后，才开始触发下次任务
 
 
 
