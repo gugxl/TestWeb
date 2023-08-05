@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.annotation.MyOperation;
 import com.example.demo.schedule.ScheduleTask;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ public class TaskController {
     @Autowired
     private ScheduleTask scheduleTask;
 
+    @MyOperation("用户修改")
     @GetMapping("/updateCron")
     public String updateCron(String cron) {
         log.info("new cron :{}", cron);
