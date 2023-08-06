@@ -10,8 +10,11 @@ public class MyInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (handler instanceof HandlerMethod) {
-            HandlerMethod h = (HandlerMethod)handler;
-            System.out.println("用户想执行的操作是:"+h.getMethodAnnotation(MyOperation.class).value());
+            HandlerMethod h = (HandlerMethod) handler;
+            MyOperation methodAnnotation = h.getMethodAnnotation(MyOperation.class);
+            if (null != methodAnnotation) {
+                System.out.println("用户想执行的操作是:" + h.getMethodAnnotation(MyOperation.class).value());
+            }
         }
         return HandlerInterceptor.super.preHandle(request, response, handler);
     }
